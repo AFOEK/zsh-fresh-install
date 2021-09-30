@@ -26,9 +26,13 @@ else
     VER=$(uname -r)
 fi
 
-if [[ "$OS" == "Ubuntu" ]]; then
+if [[ "$OS" == "Ubuntu" ] || [ "$OS" == "Raspbian GNU/Linux" ]]; then
     sudo apt-get install -y zsh wget git lolcat figlet
 elif [[ "$OS" == "Darwin" ]]; then
     if ! [ -x "$(command -v brew)" ]; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
     sudo brew install lolcat figlet
+elif [[ "$OS" == "ManjaroLinux" ]]; then
+    sudo pacman -Syu zsh
+fi
