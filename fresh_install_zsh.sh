@@ -41,16 +41,16 @@ if [ $EUID -eq 0 ]; then
     echo -e "\033[33mInstalling...\033[0m" && sleep 5
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-    if [[ "$OS" == "Ubuntu" ]]
-    then cp zshrc_ubuntu $HOME/.zshrc
-    elif [[ "$OS" == "Darwin" ]]
-    then cp zshrc_darwin $HOME/.zshrc
-    elif [[ "$OS" == "ManjaroLinux" ]]
-    then cp zshrc_manjaro $HOME/.zshrc
-    elif [ "$OS" -eq "Debian" ] && { [ "$arch" -eq "x86_64" ] && [ "$arch" -eq "x86" ] }
-    then cp zshrc_debian $HOME/.zshrc
-    elif [ "$OS" -eq"Debian" ] && { [ "$arch" -eq "armv7l" ] && [ "$arch" -eq "aarch64" ] }
-    then cp zshrc_raspberry $HOME/.zshrc
+    if [[ "$OS" == "Ubuntu" ]]; then
+        cp zshrc_ubuntu $HOME/.zshrc
+    elif [[ "$OS" == "Darwin" ]]; then
+        cp zshrc_darwin $HOME/.zshrc
+    elif [[ "$OS" == "ManjaroLinux" ]]; then
+        cp zshrc_manjaro $HOME/.zshrc
+    elif [ "$OS" -eq "Debian" ] && { [ "$arch" -eq "x86_64" ] && [ "$arch" -eq "x86" ]; }; then 
+        cp zshrc_debian $HOME/.zshrc
+    elif [ "$OS" -eq"Debian" ] && { [ "$arch" -eq "armv7l" ] && [ "$arch" -eq "aarch64" ]; }; then
+        cp zshrc_raspberry $HOME/.zshrc
     else
         echo "Not recognize operating system or architecture"
     fi
