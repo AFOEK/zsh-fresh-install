@@ -29,7 +29,7 @@ if [ $EUID -eq 0 ]; then
     fi
 
     if [[ "$OS" == "Ubuntu" || "$OS" == "Debian" ]]; then
-        sudo apt-get install -y zsh wget git lolcat figlet exa
+        sudo apt-get install -y zsh wget git lolcat figlet
     elif [[ "$OS" == "Darwin" ]]; then
         if ! [ -x "$(command -v brew)" ]; then
             /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -54,6 +54,7 @@ if [ $EUID -eq 0 ]; then
     else
         echo "Not recognize operating system or architecture"
     fi
+    source $HOME/.zshrc
 else
     echo "You must run this script using elevated permission (root)"
 fi
