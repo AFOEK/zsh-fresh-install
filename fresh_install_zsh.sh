@@ -54,4 +54,6 @@ if [ $EUID -eq 0 ]; then
     else
         echo "Not recognize operating system or architecture"
     fi
+else
+    echo "You must run this script using elevated permission (root)"
 fi
