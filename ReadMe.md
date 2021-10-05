@@ -8,3 +8,7 @@ cd zsh-fresh-install
 chmod +x ./fresh_install_zsh.sh
 sudo ./fresh_install_zsh.sh
 ```
+## For one liner
+```shell
+git clone https://github.com/AFOEK/zsh-fresh-install.git && cd zsh-fresh-install && chmod +x ./fresh_install_zsh.sh && sudo ./fresh_install_zsh.sh
+```
