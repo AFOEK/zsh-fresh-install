@@ -100,4 +100,5 @@ figlet macOS | lolcat && neofetch
 alias lls="ls -lAH | lolcat -t -p 1" 
 alias termconf="nano $HOME/.zshrc"
 alias refresh="source $HOME/.zshrc"
+alias upgrade="brew update && brew upgrade && brew upgrade --cask && brew cleanup"
 alias exal="exa --header --list-dirs -lhTFHiSbamu@ -L=3 --time-style=full-iso"

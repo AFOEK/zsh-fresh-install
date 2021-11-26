@@ -98,7 +98,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 figlet Manjaro | lolcat && neofetch
 alias lls="ls -lAH | lolcat -t -p 1" 
-alias upgrade="sudo apt update | lolcat && sudo apt upgrade -y | lolcat && sudo apt autoremove -y | lolcat"
+alias upgrade="yes | sudo pacman -Syyu"
 alias termconf="nano $HOME/.zshrc"
 alias refresh="source $HOME/.zshrc"
 alias exal="exa --header --list-dirs -lhTFHiSbamu@ -L=3 --time-style=full-iso"
