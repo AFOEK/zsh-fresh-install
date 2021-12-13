@@ -22,6 +22,9 @@ elif [ -f /etc/SuSe_version ]; then
 elif [ -f /etc/redhat_version ]; then
     OS=RedHat
     VER=$(cat /etc/redhat_version)
+elif command -v termux-setup-storage; then
+    OS=termux
+    VER=null
 else
     OS=$(uname -s)
     VER=$(uname -r)
@@ -36,6 +39,8 @@ elif [[ "$OS" == "Darwin" ]]; then
     sudo brew install lolcat figlet exa neofetch
 elif [[ "$OS" == "ManjaroLinux" ]]; then
     sudo pacman -Syu zsh lolcat figlet exa neofetch
+elif [[ "$OS" == "termux" ]]; then
+    pkg install zsh wget git figlet neofetch exa
 fi
 echo -e "\033[33mInstalling...\033[0m" && sleep 5
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -48,10 +53,12 @@ elif [[ "$OS" == "ManjaroLinux" ]]; then
     cp zshrc_manjaro $HOME/.zshrc
 elif [ "$OS" -eq "Debian" ] && { [ "$arch" -eq "x86_64" ] && [ "$arch" -eq "x86" ]; }; then 
     cp zshrc_debian $HOME/.zshrc
-elif [ "$OS" -eq"Debian" ] && { [ "$arch" -eq "armv7l" ] && [ "$arch" -eq "aarch64" ]; }; then
+elif [ "$OS" -eq "Debian" ] && { [ "$arch" -eq "armv7l" ] && [ "$arch" -eq "aarch64" ]; }; then
     cp zshrc_raspberry $HOME/.zshrc
+elif [ "$OS" -eq "termux" ] && { [ "$arch" -eq "armv7l" ] && [ "$arch" -eq "aarch64" ]; }; then
+    cp zshrc_android_termux $HOME/.zshrc
 else
-    echo "Not recognize operating system or architecture"
+    echo "Cannot recognize operating system or architecture, if your device not supported please consider make a PR"
 fi
 echo "Installing z script"
 wget https://raw.githubusercontent.com/rupa/z/master/z.sh -O ~/z.sh
