@@ -40,10 +40,15 @@ elif [[ "$OS" == "Darwin" ]]; then
 elif [[ "$OS" == "ManjaroLinux" ]]; then
     sudo pacman -Syu zsh lolcat figlet exa neofetch
 elif [[ "$OS" == "termux" ]]; then
-    pkg install zsh wget git figlet neofetch exa
+    pkg install zsh wget git figlet neofetch exa ruby
+    wget https://github.com/busyloop/lolcat/archive/master.zip
+    unzip master.zip
+    cd lolcat-master/bin
+    gem install lolcat
 fi
 echo -e "\033[33mInstalling...\033[0m" && sleep 5
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+exit
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 if [[ "$OS" == "Ubuntu" ]]; then
     cp zshrc_ubuntu $HOME/.zshrc
