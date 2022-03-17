@@ -41,9 +41,6 @@ elif [[ "$OS" == "ManjaroLinux" ]]; then
     sudo pacman -Syu zsh lolcat figlet exa neofetch
 elif [[ "$OS" == "termux" ]]; then
     pkg install zsh wget git figlet neofetch exa ruby
-    wget https://github.com/busyloop/lolcat/archive/master.zip
-    unzip master.zip
-    cd lolcat-master/bin
     gem install lolcat
 fi
 echo -e "\033[33mInstalling...\033[0m" && sleep 5
